@@ -1,0 +1,15 @@
+<package>
+  <description brief="LeapMotion">
+
+     LeapMotion
+
+  </description>
+  <author>Brad</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/LeapMotion</url>
+  <depend package="rospy"/>
+  <depend package="core_skill_execution_server"/>
+</package>
+
+
