@@ -53,7 +53,7 @@ class GestureNode:
 
 class GuiMain:
 
-  def __init__(self, width=800, height=600):
+  def __init__(self, width=800, height=250):
     pygame.init()
     self.width = width
     self.height = height
@@ -73,6 +73,10 @@ class GuiMain:
             sys.exit()
           elif event.key == pygame.K_r:
             self.ResetGameState()
+          elif event.key == pygame.K_d:
+            self.PlayVictory()
+          elif event.key == pygame.K_h:
+            self.PlayHighFive()
           else:
             self.ProcessGesture(event)
 
@@ -81,6 +85,7 @@ class GuiMain:
       self.RenderActiveRobot()
       self.RenderActiveGesture()
       self.RenderGestureOptions()
+      self.RenderControls()
       self.EvaluateGameLogic()
       pygame.display.flip()
 
@@ -113,11 +118,25 @@ class GuiMain:
 
   def EvaluateGameLogic(self):
     global current_gesturenode_, victory_node
-    if len(current_gesturenode_.children) == 0:
-      print "Resetting Game Logic -- End/win condition found"
-      victory_node.PlaySound()
-      victory_node.PlayAction()
+    if (current_gesturenode_ == None):
+      print "Current gesturenode is None! Error."
       self.ResetGameState()
+    if len(current_gesturenode_.children) == 0:
+      self.PlayVictory()
+
+  def PlayVictory(self):
+    global victory_node
+    print "==Victory condition=="
+    victory_node.PlaySound()
+    victory_node.PlayAction()
+    self.ResetGameState()    
+
+  def PlayHighFive(self):
+    global highfive_node
+    print "==Highfive condition=="
+    highfive_node.PlaySound()
+    highfive_node.PlayAction()
+    self.ResetGameState()    
 
   def ResetGameState(self):
     global current_gesturenode_,root_gesturenode
@@ -147,6 +166,12 @@ class GuiMain:
     textpos = text.get_rect(centerx = self.width/2, centery = 100)
     self.screen.blit(text,textpos)
 
+  def RenderControls(self):
+    font = pygame.font.SysFont("monospace", 16, False, False)
+    text = font.render("Key Commands:      [R]eset     [Q]uit    [D]ance     [H]ighfive", False, (0, 255, 0))
+    textpos = text.get_rect(centerx = self.width/2, centery = self.height - 40)
+    self.screen.blit(text,textpos)
+
 
 if __name__ == "__main__":
   root_gesturenode = GestureNode("ReadyPosition")
@@ -156,6 +181,8 @@ if __name__ == "__main__":
 
   victory_node = GestureNode("VictoryDance")
   victory_node.sound_path = "../sounds/victory.mp3"
+
+  highfive_node = GestureNode("HighFive")
 
   #root_gesturenode.sound_path = "../sounds/startup.mp3"
 
