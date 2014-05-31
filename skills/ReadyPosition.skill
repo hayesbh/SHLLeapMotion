@@ -1,0 +1,53 @@
+{
+    "name": "ReadyPosition",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_gripper_finger_joint_l",
+        "GLaDOS_gripper_finger_joint_r",
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "0ea7893fa5b5325382e4ce7efe6d0da1"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "0ea7893fa5b5325382e4ce7efe6d0da1"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "0ea7893fa5b5325382e4ce7efe6d0da1",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.08032,
+                    "GLaDOS_joint_2": 0.0101692,
+                    "GLaDOS_joint_3": -0.015808,
+                    "GLaDOS_joint_4": 0.0222239,
+                    "GLaDOS_joint_5": 2.95637
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [],
+                "Transitions": []
+            }
+        ]
+    }
+}

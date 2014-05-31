@@ -1,0 +1,49 @@
+{
+    "name": "LeftReadyPickup",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "6fa17836b3270b6c903f8a27f1e7d3a2"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "6fa17836b3270b6c903f8a27f1e7d3a2"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "6fa17836b3270b6c903f8a27f1e7d3a2",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 1.33564,
+                    "GLaDOS_joint_2": 0.591052,
+                    "GLaDOS_joint_3": -3.27084,
+                    "GLaDOS_joint_4": 0.0222239,
+                    "GLaDOS_joint_5": 2.89746
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [],
+                "Transitions": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "name": "ScrewIn",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "8a9fe0d2aada83d0c98003949ede6b04"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "66a234c8ae6e1daa6dcfafff9cb58f6a"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "8a9fe0d2aada83d0c98003949ede6b04",
+                "RobotVector": {
+                    "GLaDOS_joint_5": 2.86491
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "66a234c8ae6e1daa6dcfafff9cb58f6a",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "66a234c8ae6e1daa6dcfafff9cb58f6a",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "66a234c8ae6e1daa6dcfafff9cb58f6a",
+                "RobotVector": {
+                    "GLaDOS_joint_5": 0.110719
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "8a9fe0d2aada83d0c98003949ede6b04"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}

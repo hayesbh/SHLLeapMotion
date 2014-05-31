@@ -1,0 +1,121 @@
+{
+    "name": "StandUpFaceBackLow",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "8f113438d2480a2f16ae95aa6c64ce12"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "c7449ec589781d78408c6d5167cf6e59"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "8f113438d2480a2f16ae95aa6c64ce12",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.00969,
+                    "GLaDOS_joint_2": 0.983731,
+                    "GLaDOS_joint_3": -2.27993,
+                    "GLaDOS_joint_4": 0.0508407,
+                    "GLaDOS_joint_5": 2.90954
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "47e8dbca13302002e579ea0d73e5bc95",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "47e8dbca13302002e579ea0d73e5bc95",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "47e8dbca13302002e579ea0d73e5bc95",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.00981,
+                    "GLaDOS_joint_2": 1.97132,
+                    "GLaDOS_joint_3": -4.13496,
+                    "GLaDOS_joint_4": 0.882411,
+                    "GLaDOS_joint_5": 2.90954
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "c7449ec589781d78408c6d5167cf6e59",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "8f113438d2480a2f16ae95aa6c64ce12"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "c7449ec589781d78408c6d5167cf6e59",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "c7449ec589781d78408c6d5167cf6e59",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.00949,
+                    "GLaDOS_joint_2": 1.23714,
+                    "GLaDOS_joint_3": -4.10388,
+                    "GLaDOS_joint_4": 1.57752,
+                    "GLaDOS_joint_5": 2.90951
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "47e8dbca13302002e579ea0d73e5bc95"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}

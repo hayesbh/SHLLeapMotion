@@ -1,0 +1,49 @@
+{
+    "name": "StandUp",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "dca051cfae38ece265651a2524820dd8"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "dca051cfae38ece265651a2524820dd8"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "dca051cfae38ece265651a2524820dd8",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.0805,
+                    "GLaDOS_joint_2": 0.832713,
+                    "GLaDOS_joint_3": -2.08856,
+                    "GLaDOS_joint_4": 1.76748,
+                    "GLaDOS_joint_5": 2.90949
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [],
+                "Transitions": []
+            }
+        ]
+    }
+}

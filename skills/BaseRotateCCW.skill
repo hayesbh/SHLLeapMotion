@@ -1,0 +1,49 @@
+{
+    "name": "BaseRotateCCW",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "3922f8c5e40deaf211acd4d63dd8f84a"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "3922f8c5e40deaf211acd4d63dd8f84a"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "3922f8c5e40deaf211acd4d63dd8f84a",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 1.3417,
+                    "GLaDOS_joint_2": 0.0101692,
+                    "GLaDOS_joint_3": -0.015808,
+                    "GLaDOS_joint_4": 0.0222239,
+                    "GLaDOS_joint_5": 2.95619
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [],
+                "Transitions": []
+            }
+        ]
+    }
+}

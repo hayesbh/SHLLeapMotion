@@ -1,0 +1,49 @@
+{
+    "name": "StandUpFaceForward",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "e275fb3a453675bb33b1f61bde71f7ec"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "e275fb3a453675bb33b1f61bde71f7ec"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "e275fb3a453675bb33b1f61bde71f7ec",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.08029,
+                    "GLaDOS_joint_2": 1.00464,
+                    "GLaDOS_joint_3": -1.89378,
+                    "GLaDOS_joint_4": 2.79476,
+                    "GLaDOS_joint_5": 3.02726
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [],
+                "Transitions": []
+            }
+        ]
+    }
+}

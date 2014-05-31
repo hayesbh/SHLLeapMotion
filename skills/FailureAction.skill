@@ -1,0 +1,121 @@
+{
+    "name": "FailureAction",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "b78cc925f2425e563b1dc5500263cbf7"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "b59835f15e96e4e7f1400267b6fb23b6"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "b78cc925f2425e563b1dc5500263cbf7",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.0351,
+                    "GLaDOS_joint_2": 0.958709,
+                    "GLaDOS_joint_3": -2.32585,
+                    "GLaDOS_joint_4": 3.1598,
+                    "GLaDOS_joint_5": 2.88024
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "633b20314c89e36bff00ad040146871a",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "633b20314c89e36bff00ad040146871a",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "633b20314c89e36bff00ad040146871a",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.1042,
+                    "GLaDOS_joint_2": 0.968909,
+                    "GLaDOS_joint_3": -2.1844,
+                    "GLaDOS_joint_4": 3.02856,
+                    "GLaDOS_joint_5": 2.05356
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "b59835f15e96e4e7f1400267b6fb23b6",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "b78cc925f2425e563b1dc5500263cbf7"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "b59835f15e96e4e7f1400267b6fb23b6",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "b59835f15e96e4e7f1400267b6fb23b6",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.10613,
+                    "GLaDOS_joint_2": 0.968376,
+                    "GLaDOS_joint_3": -1.33866,
+                    "GLaDOS_joint_4": 3.15925,
+                    "GLaDOS_joint_5": 2.83148
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "633b20314c89e36bff00ad040146871a"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}

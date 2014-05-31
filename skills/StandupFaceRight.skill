@@ -1,0 +1,49 @@
+{
+    "name": "StandupFaceRight",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "73bc83d7f9b9f84db4694b284f832aef"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "73bc83d7f9b9f84db4694b284f832aef"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "73bc83d7f9b9f84db4694b284f832aef",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 1.39865,
+                    "GLaDOS_joint_2": 0.913307,
+                    "GLaDOS_joint_3": -2.11748,
+                    "GLaDOS_joint_4": 1.91119,
+                    "GLaDOS_joint_5": 2.86557
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [],
+                "Transitions": []
+            }
+        ]
+    }
+}

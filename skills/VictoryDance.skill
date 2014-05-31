@@ -1,0 +1,85 @@
+{
+    "name": "VictoryDance",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "dc6ec4e6be2e2dfb2e2d544d904699c1"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "2f8bffa7829c9b8984d0cf251d50d9a6"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "dc6ec4e6be2e2dfb2e2d544d904699c1",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.07543,
+                    "GLaDOS_joint_2": 0.953061,
+                    "GLaDOS_joint_3": -2.17915,
+                    "GLaDOS_joint_4": 1.56681,
+                    "GLaDOS_joint_5": 5.64149
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "2f8bffa7829c9b8984d0cf251d50d9a6",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "2f8bffa7829c9b8984d0cf251d50d9a6",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "2f8bffa7829c9b8984d0cf251d50d9a6",
+                "RobotVector": {
+                    "GLaDOS_joint_1": 3.07505,
+                    "GLaDOS_joint_2": 0.0101692,
+                    "GLaDOS_joint_3": -0.015808,
+                    "GLaDOS_joint_4": 0.0222239,
+                    "GLaDOS_joint_5": 0.110719
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "dc6ec4e6be2e2dfb2e2d544d904699c1"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}
