@@ -22,6 +22,7 @@ current_gesturenode_ = None
 failure_gesturenode_ = None
 victory_node_ = None
 highfive_node_ = None
+left_handover = None
 num_consecutive_failures_ = 0
 action_history_ = []
 
@@ -186,7 +187,7 @@ class GestureListener(Leap.Listener):
                 gesture.id, self.state_string(gesture.state),
                 circle.progress, circle.radius, swept_angle * Leap.RAD_TO_DEG, clockwiseness))
 
-        if (circle.progress > 1.2 and circle.state == Leap.Gesture.STATE_STOP):
+        if (circle.progress > 1.2): # and circle.state == Leap.Gesture.STATE_STOP):
           GestureListener.last_gesture_time_ = time.time()
           HandleCircleGesture(clockwiseness)
 
@@ -238,7 +239,7 @@ def ProcessGesture(gesture_type):
   if next_gesturenode == None:
     # Invalid transition given
     num_consecutive_failures_ += 1
-    if (num_consecutive_failures_ >= 3):
+    if (num_consecutive_failures_ >= 50):
       print "Following invalid transition from %s" % (current_gesturenode_.primitive_action)
       failure_gesturenode_.PlaySound()
       failure_gesturenode_.PlayAction()
@@ -247,6 +248,7 @@ def ProcessGesture(gesture_type):
   else:
     # Valid transition given
     print "Following valid transition from %s to %s" % (current_gesturenode_.primitive_action, next_gesturenode.primitive_action)
+    num_consecutive_failures_ = 0
     next_gesturenode.PlaySound()
     next_gesturenode.PlayAction()
     root_gesturenode.PlaySound() # Play the "ready" noise
@@ -271,9 +273,13 @@ def EvaluateGameLogic():
 
 
 def PlayWholePath():
-  global action_history_, root_gesturenode
+  global action_history_, root_gesturenode, current_gesturenode_, left_handover
+  print "Primitive Action of Current at PlayWholePath: %s" % current_gesturenode_.primitive_action
+  if (current_gesturenode_.primitive_action == "LeftPickupHandover"):
+    pygame.mixer.music.load("../sounds/partyrock.wav")
+  else:
+    pygame.mixer.music.load("../sounds/finished_sequence.wav")
 
-  pygame.mixer.music.load("../sounds/finished_sequence.wav")
   pygame.mixer.music.play(1)
   root_gesturenode.PlayAction()
   for gesturenode in action_history_:
@@ -294,9 +300,10 @@ def PlayHighFive():
   ResetGameState()    
 
 def ResetGameState():
-  global current_gesturenode_, root_gesturenode, action_history_
+  global current_gesturenode_, root_gesturenode, action_history_, num_consecutive_failures_
   print "Reset game state"
   action_history_ = []
+  num_consecutive_failures_ = 0
   current_gesturenode_ = root_gesturenode
   root_gesturenode.PlaySound()
   root_gesturenode.PlayAction()
@@ -348,7 +355,7 @@ def ExecuteSkill(skill_name):
 
 
 def main():
-  global skill_server_control_service_, active_robot_name_, current_gesturenode_, failure_gesturenode_, root_gesturenode, highfive_node_, victory_node_
+  global skill_server_control_service_, active_robot_name_, current_gesturenode_, failure_gesturenode_, root_gesturenode, highfive_node_, victory_node_, left_handover
   # Initialize Main Program Vars
   skill_server_control_service_ = None
   active_robot_name_ = sys.argv[1] if len(sys.argv) > 1 else 'GLaDOS'
@@ -398,6 +405,7 @@ def main():
   left_ready_pickup = GestureNode("LeftReadyPickup")
   left_pickup = GestureNode("LeftPickup")
   left_handover = GestureNode("LeftPickupHandover")
+  #left_handover.sound_path = "../sounds/partyrock.wav"
 
   root_gesturenode.AddLinkedNode("rotate_ccw", base_rotate_ccw)
   base_rotate_ccw.AddLinkedNode("swipe_left", left_ready_pickup)
@@ -408,7 +416,7 @@ def main():
   # Readyposition, StandUp, StandUpFaceForward, ScrewIn, StandUpFaceForwardLow, ScrewIn
   face_forward = GestureNode("StandUpFaceForward")
   screw_in_fwd = GestureNode("ScrewIn")
-  face_forward_low = GestureNode("StandUpFaceForwardLow")
+  face_forward_low = GestureNode("StandupFaceForwardLow")
   screw_in_final = GestureNode("ScrewIn")
 
   stand_up.AddLinkedNode("swipe_backward", face_forward)
