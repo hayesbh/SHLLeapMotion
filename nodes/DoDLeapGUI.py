@@ -319,7 +319,7 @@ def ExecuteSkill(skill_name):
   srv.command_string_args.append(skill_name)
   resp = skill_server_control_service_(srv)
   if (not resp.command_ok):
-    rospy.logerror("Couldn't load skill %s on robot %s" % (skill_name, active_robot_name_))
+    rospy.logerr("Couldn't load skill %s on robot %s" % (skill_name, active_robot_name_))
     return False
 
   srv = ControlCommandRequest()
@@ -327,14 +327,14 @@ def ExecuteSkill(skill_name):
   rospy.loginfo("Beginning Skill Execution...")
   resp = skill_server_control_service_(srv)
   if (not resp.command_ok):
-    rospy.logerror("Couldn't execute skill %s on robot %s" % (skill_name, active_robot_name_))
+    rospy.logerr("Couldn't execute skill %s on robot %s" % (skill_name, active_robot_name_))
     return False
   rospy.loginfo("...Completed Skill Execution")
   return True
 
 
 def GetScrewdriver2():
-  success = ExecuteSkill("GetScrewDriver2")
+  success = ExecuteSkill("GetScrewdriver2")
   # Wait 5 seconds
   cur_time = time.time()
   while (time.time() - cur_time < 5): pass
@@ -343,7 +343,7 @@ def GetScrewdriver2():
   pygame.mixer.music.play(1)
 
 def GetScrewdriver1():
-  success = ExecuteSkill("GetScrewDriver1")
+  success = ExecuteSkill("GetScrewdriver1")
   # Wait 5 seconds
   cur_time = time.time()
   while (time.time() - cur_time < 5): pass
@@ -384,10 +384,10 @@ def main():
   highfive_node_.sound_path = "../sounds/highfive.wav"
 
   # DoD Demo Gestures
-  get_screwdriver_1 = GestureNode("GetScrewDriver1")
-  get_screwdriver_1.PlayAction = GetScrewDriver1
-  get_screwdriver_2 = GestureNode("GetScrewDriver2")
-  get_screwdriver_2.PlayAction = GetScrewDriver2
+  get_screwdriver_1 = GestureNode("GetScrewdriver1")
+  get_screwdriver_1.PlayAction = GetScrewdriver1
+  get_screwdriver_2 = GestureNode("GetScrewdriver2")
+  get_screwdriver_2.PlayAction = GetScrewdriver2
 
   take_tool = GestureNode("TakeTool")
   take_board = GestureNode("TakeBoard")
@@ -398,12 +398,14 @@ def main():
   root_gesturenode.AddLinkedNode("rotate_ccw", get_screwdriver_2)
   root_gesturenode.AddLinkedNode("swipe_left", get_screwdriver_1)
   root_gesturenode.AddLinkedNode("swipe_up", take_board)
+  root_gesturenode.AddLinkedNode("swipe_right", take_tool)
 
   take_board.AddLinkedNode("swipe_down", board_place_bolt)
   board_place_bolt.AddLinkedNode("rotate_cw", board_place_screw)
   board_place_screw.AddLinkedNode("swipe_down", ready_position)
 
   get_screwdriver_1.AddLinkedNode("swipe_right", take_tool)
+  get_screwdriver_1.AddLinkedNode("swipe_down", ready_position)
 
   current_gesturenode_ = root_gesturenode
 
