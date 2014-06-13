@@ -1,0 +1,91 @@
+{
+    "name": "BoardPlaceScrew",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_gripper_finger_joint_l",
+        "GLaDOS_gripper_finger_joint_r",
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "3dbb21e03e06fded6788876007e8e5d8"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "e0f6098ac0aa3eab746bc4b866b16145"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "3dbb21e03e06fded6788876007e8e5d8",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.27151,
+                    "GLaDOS_joint_2": 1.64855,
+                    "GLaDOS_joint_3": -1.69657,
+                    "GLaDOS_joint_4": 2.80538,
+                    "GLaDOS_joint_5": 4.59564
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "e0f6098ac0aa3eab746bc4b866b16145",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "e0f6098ac0aa3eab746bc4b866b16145",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "e0f6098ac0aa3eab746bc4b866b16145",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.67134,
+                    "GLaDOS_joint_2": 2.08582,
+                    "GLaDOS_joint_3": -1.99618,
+                    "GLaDOS_joint_4": 2.27469,
+                    "GLaDOS_joint_5": 3.84633
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "3dbb21e03e06fded6788876007e8e5d8"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}

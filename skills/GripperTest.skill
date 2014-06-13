@@ -1,0 +1,91 @@
+{
+    "name": "GripperTest",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_gripper_finger_joint_l",
+        "GLaDOS_gripper_finger_joint_r"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "b4b147bc522828731f1a016bfa72c073"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "95baccc4cbb5e2fb68765e601e332ccb"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "b4b147bc522828731f1a016bfa72c073",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "b4b147bc522828731f1a016bfa72c073",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    },
+                    {
+                        "Target": "95baccc4cbb5e2fb68765e601e332ccb",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "b4b147bc522828731f1a016bfa72c073"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "b4b147bc522828731f1a016bfa72c073",
+                                "Frequency": 2
+                            },
+                            {
+                                "Target": "95baccc4cbb5e2fb68765e601e332ccb",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "95baccc4cbb5e2fb68765e601e332ccb",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0.00154344,
+                    "GLaDOS_gripper_finger_joint_r": 0.0015478
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "b4b147bc522828731f1a016bfa72c073"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}

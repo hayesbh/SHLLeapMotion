@@ -1,0 +1,433 @@
+{
+    "name": "TakeTool",
+    "TrainingData": {
+        "Trials": 0,
+        "DurationApproximation": [],
+        "AnticipatedDuration": 0,
+        "AnticipatedDurationStddev": 0
+    },
+    "SensorList": [
+        "GLaDOS_gripper_finger_joint_l",
+        "GLaDOS_gripper_finger_joint_r",
+        "GLaDOS_joint_1",
+        "GLaDOS_joint_2",
+        "GLaDOS_joint_3",
+        "GLaDOS_joint_4",
+        "GLaDOS_joint_5"
+    ],
+    "RequiredToolsList": [],
+    "SkillTags": [],
+    "RequiredObjectList": [],
+    "ProhibitedObjectList": [],
+    "Preconditions": [],
+    "Postconditions": [],
+    "Metadata": {},
+    "StateGraph": {
+        "InitiateStates": [
+            "b1b7033da9c4466b20360fc3c7827b6e"
+        ],
+        "GoalStates": [],
+        "TrainedGoalStates": [
+            "4bf7fe585a09c478fef038341bb5355e"
+        ],
+        "NearbyThresholds": {},
+        "InternalStates": [
+            {
+                "Hash": "b1b7033da9c4466b20360fc3c7827b6e",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.23374,
+                    "GLaDOS_joint_2": 1.19409,
+                    "GLaDOS_joint_3": -2.74852,
+                    "GLaDOS_joint_4": 3.35728,
+                    "GLaDOS_joint_5": 2.86885
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "9b1a88faf48785c61908dff8857efa9a",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "9b1a88faf48785c61908dff8857efa9a",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "9b1a88faf48785c61908dff8857efa9a",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0.0115,
+                    "GLaDOS_gripper_finger_joint_r": 0.0115,
+                    "GLaDOS_joint_1": 3.1103,
+                    "GLaDOS_joint_2": 2.05003,
+                    "GLaDOS_joint_3": -2.72255,
+                    "GLaDOS_joint_4": 2.49819,
+                    "GLaDOS_joint_5": 2.75173
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "270abfc778b3f36230416f62efea16a0",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "b1b7033da9c4466b20360fc3c7827b6e"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "270abfc778b3f36230416f62efea16a0",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "270abfc778b3f36230416f62efea16a0",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0.0115,
+                    "GLaDOS_gripper_finger_joint_r": 0.0115,
+                    "GLaDOS_joint_1": 3.10008,
+                    "GLaDOS_joint_2": 2.07534,
+                    "GLaDOS_joint_3": -2.73041,
+                    "GLaDOS_joint_4": 2.49635,
+                    "GLaDOS_joint_5": 3.20688
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "2d1502adfd3b990c0e7204a8e265bffa",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "9b1a88faf48785c61908dff8857efa9a"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "2d1502adfd3b990c0e7204a8e265bffa",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "2d1502adfd3b990c0e7204a8e265bffa",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.10008,
+                    "GLaDOS_joint_2": 2.07564,
+                    "GLaDOS_joint_3": -2.77109,
+                    "GLaDOS_joint_4": 2.49861,
+                    "GLaDOS_joint_5": 2.8027
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "cb6882e85b0aea19a59f22dce823ae03",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "270abfc778b3f36230416f62efea16a0"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "cb6882e85b0aea19a59f22dce823ae03",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "cb6882e85b0aea19a59f22dce823ae03",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.10002,
+                    "GLaDOS_joint_2": 2.10469,
+                    "GLaDOS_joint_3": -2.85629,
+                    "GLaDOS_joint_4": 2.66204,
+                    "GLaDOS_joint_5": 3.08215
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "d28e793f1b60f9585a0e836b998753c8",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "2d1502adfd3b990c0e7204a8e265bffa"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "d28e793f1b60f9585a0e836b998753c8",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "d28e793f1b60f9585a0e836b998753c8",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.04466,
+                    "GLaDOS_joint_2": 1.01195,
+                    "GLaDOS_joint_3": -2.3255,
+                    "GLaDOS_joint_4": 3.2725,
+                    "GLaDOS_joint_5": 3.03777
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "b0c64a8b31390d33aa0cecb74b86f352",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "cb6882e85b0aea19a59f22dce823ae03"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "b0c64a8b31390d33aa0cecb74b86f352",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "b0c64a8b31390d33aa0cecb74b86f352",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 1.76093,
+                    "GLaDOS_joint_2": 0.896109,
+                    "GLaDOS_joint_3": -0.752364,
+                    "GLaDOS_joint_4": 3.17821,
+                    "GLaDOS_joint_5": 3.59071
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "613e4bea6250ff4dfd7f95e62ed86ee8",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "d28e793f1b60f9585a0e836b998753c8"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "613e4bea6250ff4dfd7f95e62ed86ee8",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "613e4bea6250ff4dfd7f95e62ed86ee8",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0.0115,
+                    "GLaDOS_gripper_finger_joint_r": 0.0115,
+                    "GLaDOS_joint_1": 1.76099,
+                    "GLaDOS_joint_2": 0.896804,
+                    "GLaDOS_joint_3": -0.721655,
+                    "GLaDOS_joint_4": 3.18197,
+                    "GLaDOS_joint_5": 2.87584
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "fd1ea6d7567937790b84fa5f533478df",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "b0c64a8b31390d33aa0cecb74b86f352"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "fd1ea6d7567937790b84fa5f533478df",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "fd1ea6d7567937790b84fa5f533478df",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0.0115,
+                    "GLaDOS_gripper_finger_joint_r": 0.0115,
+                    "GLaDOS_joint_1": 1.76028,
+                    "GLaDOS_joint_2": 0.896733,
+                    "GLaDOS_joint_3": -0.798216,
+                    "GLaDOS_joint_4": 3.18022,
+                    "GLaDOS_joint_5": 3.66442
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "b7d7f6a7e21275308371532a5ff552c6",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "613e4bea6250ff4dfd7f95e62ed86ee8"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "b7d7f6a7e21275308371532a5ff552c6",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "b7d7f6a7e21275308371532a5ff552c6",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0.0115,
+                    "GLaDOS_gripper_finger_joint_r": 0.0115,
+                    "GLaDOS_joint_1": 1.76136,
+                    "GLaDOS_joint_2": 0.896864,
+                    "GLaDOS_joint_3": -0.796472,
+                    "GLaDOS_joint_4": 3.18168,
+                    "GLaDOS_joint_5": 3.03088
+                },
+                "ObjectVector": [],
+                "RewardLayers": [
+                    {
+                        "Target": "4bf7fe585a09c478fef038341bb5355e",
+                        "Layers": [
+                            {
+                                "Layer": "keyframe",
+                                "Reward": 100
+                            }
+                        ]
+                    }
+                ],
+                "IncomingStates": [
+                    "fd1ea6d7567937790b84fa5f533478df"
+                ],
+                "Transitions": [
+                    {
+                        "Action": "SAFESEARCH",
+                        "Targets": [
+                            {
+                                "Target": "4bf7fe585a09c478fef038341bb5355e",
+                                "Frequency": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Hash": "4bf7fe585a09c478fef038341bb5355e",
+                "RobotVector": {
+                    "GLaDOS_gripper_finger_joint_l": 0,
+                    "GLaDOS_gripper_finger_joint_r": 0,
+                    "GLaDOS_joint_1": 3.22524,
+                    "GLaDOS_joint_2": 0.0101692,
+                    "GLaDOS_joint_3": -0.015808,
+                    "GLaDOS_joint_4": 0.0222239,
+                    "GLaDOS_joint_5": 2.85319
+                },
+                "ObjectVector": [],
+                "RewardLayers": [],
+                "IncomingStates": [
+                    "b7d7f6a7e21275308371532a5ff552c6"
+                ],
+                "Transitions": []
+            }
+        ]
+    }
+}
