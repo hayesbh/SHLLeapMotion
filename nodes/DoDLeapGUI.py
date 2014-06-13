@@ -399,13 +399,13 @@ def main():
   root_gesturenode.AddLinkedNode("swipe_left", get_screwdriver_1)
   root_gesturenode.AddLinkedNode("swipe_up", take_board)
   root_gesturenode.AddLinkedNode("swipe_right", take_tool)
-
+  root_gesturenode.AddLinkedNode("swipe_forward", highfive_node_)
   take_board.AddLinkedNode("swipe_down", board_place_bolt)
   board_place_bolt.AddLinkedNode("rotate_cw", board_place_screw)
   board_place_screw.AddLinkedNode("swipe_down", ready_position)
 
-  get_screwdriver_1.AddLinkedNode("swipe_right", take_tool)
-  get_screwdriver_1.AddLinkedNode("swipe_down", ready_position)
+  #get_screwdriver_1.AddLinkedNode("swipe_right", take_tool)
+  #get_screwdriver_1.AddLinkedNode("swipe_down", ready_position)
 
   current_gesturenode_ = root_gesturenode
 
