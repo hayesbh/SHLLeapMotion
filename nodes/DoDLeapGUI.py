@@ -6,6 +6,7 @@ import sys
 import rospy
 import core_skill_execution_server
 from core_skill_execution_server.srv import *
+from core_skill_execution_server.msg import *
 import time
 import pygame
 from pygame.locals import *
@@ -16,7 +17,8 @@ from Leap import CircleGesture, KeyTapGesture, ScreenTapGesture, SwipeGesture
 
 
 active_robot_name_ = "GLaDOS"
-skill_server_control_service_ = None
+skill_server_control_publisher_ = None
+skill_server_status_request_ = None
 root_gesturenode = None
 current_gesturenode_ = None
 failure_gesturenode_ = None
@@ -292,44 +294,60 @@ def ResetGameState():
 # ROBOT CONTROL CODE
 
 def SetActiveRobot(robot_name):
-  global active_robot_name_, skill_server_control_service_
+  global active_robot_name_
   active_robot_name_ = robot_name
   rospy.loginfo("LeapServer setting active robot to %s..." % active_robot_name_)
   InitializeSkillServerPublisher()
   rospy.loginfo("...LeapServer set active robot to %s" % active_robot_name_)
 
 def InitializeSkillServerPublisher():
-  global active_robot_name_, skill_server_control_service_
-  skill_server_service_name = "/"+active_robot_name_+"/skillserver_control_command"
-  rospy.loginfo("Connecting to core_skill_execution_server (Service: %s)..." % skill_server_service_name)
-  rospy.wait_for_service(skill_server_service_name)
+  global active_robot_name_, skill_server_control_publisher_, skill_server_status_request_
+  skill_server_topic_name = "/"+active_robot_name_+"/skillserver_control_command"
+  rospy.loginfo("Setting up publisher for core_skill_execution_server (Topic: %s)" % skill_server_topic_name)
+  skill_server_control_publisher_ = rospy.Publisher(skill_server_topic_name, core_skill_execution_server.msg.SkillserverCommand)
+
+  # Loop until get status returns something ok
+  skill_server_status_service_name = "/"+active_robot_name_+"/skillserver_statusrequest"
+  rospy.wait_for_service(skill_server_status_service_name)
+  skill_server_status_request_ = rospy.ServiceProxy(skill_server_status_service_name, StatusRequest)
   rospy.loginfo("Connected")
 
-  try:
-    skill_server_control_service_ = rospy.ServiceProxy(skill_server_service_name, ControlCommand)
-  except rospy.ServiceException, e:
-    rospy.loginfo("ControlCommand call failed: %s" % e)
 
 def ExecuteSkill(skill_name):
-  global active_robot_name_, skill_server_control_service_
+  global active_robot_name_, skill_server_control_publisher_
   print "Executing %s on robot: %s" % (skill_name, active_robot_name_)
 
-  srv = ControlCommandRequest()
-  srv.command_type = srv.COMMAND_LOAD_SKILL
-  srv.command_string_args.append(skill_name)
-  resp = skill_server_control_service_(srv)
-  if (not resp.command_ok):
+  msg = SkillserverCommand()
+  msg.command_type = msg.COMMAND_LOAD_SKILL
+  msg.command_string_args.append(skill_name)
+  skill_server_control_publisher_.publish(msg)
+
+  srv = StatusRequestRequest()
+  srv.request_type = StatusRequestRequest.REQUEST_ACTIVE_SKILL
+  resp = skill_server_status_request_(srv)
+  if (resp.string_values[0] != skill_name): #string_keys[0] is ActiveSkill for this service call
     rospy.logerr("Couldn't load skill %s on robot %s" % (skill_name, active_robot_name_))
     return False
 
-  srv = ControlCommandRequest()
-  srv.command_type = srv.COMMAND_EXECUTE_SKILL
+  msg = SkillserverCommand()
+  msg.command_type = msg.COMMAND_EXECUTE_SKILL
   rospy.loginfo("Beginning Skill Execution...")
-  resp = skill_server_control_service_(srv)
-  if (not resp.command_ok):
-    rospy.logerr("Couldn't execute skill %s on robot %s" % (skill_name, active_robot_name_))
-    return False
-  rospy.loginfo("...Completed Skill Execution")
+  skill_server_control_publisher_.publish(msg)
+
+  rospy.loginfo("...Activated Skill Execution")
+
+  # Make this a blocking function
+  while True:
+    rospy.sleep(0.5)
+    srv = StatusRequestRequest()
+    srv.request_type = StatusRequestRequest.REQUEST_EXECUTE_STATUS
+    resp = skill_server_status_request_(srv)
+    print "%s: %s." % (resp.bool_keys[0], resp.bool_values[0])
+    if (resp.bool_values[0] == False):
+      break
+
+  rospy.loginfo("...Finished Skill Execution")
+
   return True
 
 
